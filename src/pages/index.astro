@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Welcome from '../components/Welcome.astro';
+import TopSocials from '../components/navbar/top-socials.astro';
+import Navbar from '../components/navbar/simple-nav.astro';
+import Footer from '../components/footer/simple-footer.astro';
+import Container from '../components/layout/container.astro';
+import HeroCarousel from '../components/carousels/hero-carousel.astro';
+import CallSection from '../components/cta-sections/cta-one.astro';
+import Impact from '../components/about-sections/impact.astro';
+import Programs from '../components/home-sections/programs.astro';
+import CommunityInvolvement from '../components/home-sections/community-involvement.astro';
+import MailingList from '../components/contact-us-sections/mailing-list.astro';
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Slider } from '../components/ui/slider';
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription
+} from '../components/ui/alert';
+
+import '../styles/global.css';
+import LogoImage from '../assets/Rihlah Logo.svg';
+import LogoName from '../assets/Logo Wordmark.svg';
+import LogoImageWhite from '../assets/Rihlah Logo White.svg';
+import LogoNameWhite from '../assets/Logo Wordmark White.svg';
+---
+
+<Layout title="Rihlah - Welcome">
+  <TopSocials />
+  <Navbar>
+    <div slot="logo" class="flex gap-4">
+      <img slot="logo" src={LogoImage.src} alt="Logo" class="w-18 h-18" />
+      <img slot="logo" src={LogoName.src} alt="Logo" class="py-2" />
+    </div>
+  </Navbar>
+
+  <HeroCarousel />
+  <Container>
+      <CallSection />
+  </Container>
+  <Programs />
+  <Container>
+    <Impact />
+  </Container>
+  <CommunityInvolvement />
+  <Container>
+    <MailingList />
+  </Container>
+  <Footer>
+    <div slot="logo" class="flex gap-4">
+      <img slot="logo" src={LogoImageWhite.src} alt="Logo" class="w-18 h-18" />
+      <img slot="logo" src={LogoNameWhite.src} alt="Logo" class="py-2" />
+    </div>
+  </Footer>
+  
+</Layout>

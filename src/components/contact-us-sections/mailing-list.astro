@@ -1,0 +1,41 @@
+<section class="bg-[#AA8F55] rounded-2xl p-12 text-center my-20">
+    <h2 class="text-4xl font-bold mb-6 text-[#F8FAFC]">
+        Join Our Mailing List
+    </h2>
+    
+    <p class="text-lg mb-8 max-w-md mx-auto text-[#F8FAFC]">
+        Stay informed about the latest events, announcements,
+        and everything else happening at Rihlah Institute!
+    </p>
+    
+    <form class="flex flex-col sm:flex-row gap-0 max-w-md mx-auto" id="mailing-form">
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+            class="flex-1 px-6 py-4 text-gray-700 bg-[#FFFAEE] rounded-l-full sm:rounded-r-none rounded-r-full focus:outline-none focus:ring-2 focus:ring-[#31576A] focus:ring-opacity-50"
+        />
+        
+        <button
+            type="submit"
+            class="px-8 py-4 font-semibold bg-[#31576A] text-[#F8FAFC] rounded-r-full sm:rounded-l-none rounded-l-full transition-all duration-200 transform hover:bg-[#2a4a59] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#31576A] focus:ring-opacity-50"
+        >
+            Join now
+        </button>
+    </form>
+</section>
+
+<!-- <script>
+    document.getElementById('mailing-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = document.getElementById('email') as HTMLInputElement;
+        const email = emailInput.value;
+        
+        // Handle form submission here
+        console.log('Email submitted:', email);
+        alert('Thank you for subscribing!');
+        emailInput.value = '';
+    });
+</script> -->

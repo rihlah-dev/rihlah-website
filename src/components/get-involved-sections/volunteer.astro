@@ -1,0 +1,97 @@
+---
+// VolunteerForm.astro
+---
+
+<section class="py-16" style="background-color: #31576A;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Left Side - Form Content -->
+            <div class="order-2 lg:order-1">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Volunteer With Us!
+                    </h2>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Sed ac lorem accumsan, placerat erat pellentesque.
+                    </p>
+                </div>
+                
+                <!-- Volunteer Form -->
+                <form class="space-y-6">
+                    <!-- Full Name Field -->
+                    <div>
+                        <label for="fullName" class="block text-white text-sm font-medium mb-2">
+                            Full Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            placeholder="Input Value"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200"
+                        />
+                    </div>
+                    
+                    <!-- Email Address Field -->
+                    <div>
+                        <label for="email" class="block text-white text-sm font-medium mb-2">
+                            Email Address
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Input Value"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200"
+                        />
+                    </div>
+                    
+                    <!-- Volunteer Role Dropdown -->
+                    <div>
+                        <label for="volunteerRole" class="block text-white text-sm font-medium mb-2">
+                            Volunteer Role
+                        </label>
+                        <select 
+                            id="volunteerRole" 
+                            name="volunteerRole"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer"
+                        >
+                            <option value="" disabled selected>Select option</option>
+                            <option value="event-coordinator">Event Coordinator</option>
+                            <option value="youth-mentor">Youth Mentor</option>
+                            <option value="education-support">Education Support</option>
+                            <option value="community-outreach">Community Outreach</option>
+                            <option value="administration">Administration</option>
+                            <option value="fundraising">Fundraising</option>
+                            <option value="maintenance">Maintenance & Setup</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Send Form Button -->
+                    <div class="pt-4">
+                        <button 
+                            type="submit"
+                            class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-transparent"
+                        >
+                            Send Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Right Side - Icon/Image Area -->
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                <div class="bg-gray-200 rounded-3xl p-12 lg:p-16 max-w-md w-full flex items-center justify-center">
+                    <!-- Volunteer/People Icon -->
+                    <div class="w-24 h-24 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

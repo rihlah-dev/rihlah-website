@@ -1,0 +1,147 @@
+---
+// HeroCarousel.astro
+
+// Sample slides - replace with your actual images
+const slides = [
+  {
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=800&fit=crop',
+    alt: 'Slide 1'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1749731630653-d9b3f00573ed?w=1920&h=800&fit=crop',
+    alt: 'Slide 2'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&h=800&fit=crop',
+    alt: 'Slide 3'
+  }
+];
+---
+
+<div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden" id="hero-carousel">
+  <!-- Slides -->
+  <div 
+    class="flex w-full h-full transition-transform duration-700 ease-in-out"
+    id="slides-container"
+  >
+    {slides.map((slide, index) => (
+      <div class="w-full h-full flex-shrink-0 relative">
+        <img
+          src={slide.image}
+          alt={slide.alt}
+          class="w-full h-full object-cover"
+        />
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/20"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Content overlay -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="text-center text-white px-4 max-w-4xl">
+      <!-- <p class="text-xl p-2">Assalamu Alaykum</p> -->
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        WELCOME TO RIHLAH INSTITUTE
+      </h1>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        Giving life to spiritually enriching journeys grounded in knowledge.
+        Acquisition, Purification, Dissemination
+      </p>
+      <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide indicators -->
+  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3" id="indicators">
+    {slides.map((_, index) => (
+      <button
+        class="w-3 h-3 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/75 indicator-btn"
+        data-slide={index}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  // Carousel functionality
+  let currentSlide = 0;
+  const totalSlides = document.querySelectorAll('#slides-container > div').length;
+  const slidesContainer = document.getElementById('slides-container');
+  const indicators = document.querySelectorAll('.indicator-btn');
+  let autoScrollInterval;
+
+  // Function to go to a specific slide
+  function goToSlide(index) {
+    currentSlide = index;
+    if (slidesContainer) {
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    
+    // Update indicators
+    indicators.forEach((indicator, i) => {
+      if (i === currentSlide) {
+        indicator.classList.remove('bg-white/50');
+        indicator.classList.add('bg-white', 'scale-125');
+      } else {
+        indicator.classList.remove('bg-white', 'scale-125');
+        indicator.classList.add('bg-white/50');
+      }
+    });
+  }
+
+  // Function to go to next slide
+  function nextSlide() {
+    const next = (currentSlide + 1) % totalSlides;
+    goToSlide(next);
+  }
+
+  // Auto-scroll functionality
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(nextSlide, 16000);
+  }
+
+  function stopAutoScroll() {
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+    }
+  }
+
+  // Initialize carousel
+  function initCarousel() {
+    // Set initial slide
+    goToSlide(0);
+    
+    // Add click listeners to indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        stopAutoScroll();
+        goToSlide(index);
+        startAutoScroll(); // Restart auto-scroll after manual interaction
+      });
+    });
+
+    // Start auto-scroll
+    startAutoScroll();
+
+    // Pause auto-scroll on hover
+    const carousel = document.getElementById('hero-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoScroll);
+      carousel.addEventListener('mouseleave', startAutoScroll);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+  } else {
+    initCarousel();
+  }
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', stopAutoScroll);
+</script>

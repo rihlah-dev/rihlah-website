@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/navbar/simple-nav.astro';
+import Footer from '../components/footer/simple-footer.astro';
+import AboutOne from '../components/about-sections/about-one.astro';
+import AboutTwo from '../components/about-sections/about-two.astro';
+import OurTeam from '../components/about-sections/our-team.astro';
+import JoinTeam from '../components/about-sections/join-team.astro';
+import Impact from '../components/about-sections/impact.astro';
+import '../styles/global.css';
+import TopSocials from '../components/navbar/top-socials.astro';
+import LogoImage from '../assets/Rihlah Logo.svg';
+import LogoName from '../assets/Logo Wordmark.svg';
+import LogoImageWhite from '../assets/Rihlah Logo White.svg';
+import LogoNameWhite from '../assets/Logo Wordmark White.svg';
+import Container from '../components/layout/container.astro';
+
+---
+
+<Layout title="Rihlah - Welcome">
+  <TopSocials />
+  <Navbar>
+    <div slot="logo" class="flex gap-4">
+      <img slot="logo" src={LogoImage.src} alt="Logo" class="w-18 h-18" />
+      <img slot="logo" src={LogoName.src} alt="Logo" class="py-2" />
+    </div>
+  </Navbar>
+
+  <Container >
+    <main class="items-center justify-center py-4">
+      <AboutOne />
+
+    </main>
+  </Container>
+  <AboutTwo />
+  <Container>
+    <Impact />
+  </Container>
+  <OurTeam />
+  <Container>
+    <JoinTeam />
+  </Container>
+  <Footer>
+    <div slot="logo" class="flex gap-4">
+      <img slot="logo" src={LogoImageWhite.src} alt="Logo" class="w-18 h-18" />
+      <img slot="logo" src={LogoNameWhite.src} alt="Logo" class="py-2" />
+    </div>
+  </Footer>
+</Layout>

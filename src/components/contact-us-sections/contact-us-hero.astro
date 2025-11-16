@@ -1,0 +1,83 @@
+---
+// ContactForm.astro
+---
+
+<section class="py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Form Section -->
+        <div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                Contact Us
+            </h2>
+            
+            <p class="text-gray-600 mb-8 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed ac lorem accumsan, placerat erat pellentesque,
+            </p>
+            
+            <form class="space-y-6" id="contact-form">
+                <div>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Full Name"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D19906] focus:border-transparent transition-colors duration-200"
+                    />
+                </div>
+                
+                <div>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D19906] focus:border-transparent transition-colors duration-200"
+                    />
+                </div>
+                
+                <div>
+                    <textarea
+                        name="message"
+                        placeholder="Your message..."
+                        rows="4"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D19906] focus:border-transparent transition-colors duration-200 resize-vertical"
+                    ></textarea>
+                </div>
+                
+                <button
+                    type="submit"
+                    class="bg-[#D19906] hover:bg-[#b8820a] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#D19906] focus:ring-opacity-50"
+                >
+                    Send Form
+                </button>
+            </form>
+        </div>
+        
+        <!-- Icon Section -->
+        <div class="flex justify-center lg:justify-end">
+                                <img src="https://placehold.co/550x500" 
+                         alt="About us image" 
+                         class="w-full h-auto object-cover">
+        </div>
+    </div>
+</section>
+
+<!-- <script>
+    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this as HTMLFormElement);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Handle form submission here
+        console.log('Form submitted:', { name, email, message });
+        alert('Thank you for your message! We will get back to you soon.');
+        
+        // Reset form
+        (this as HTMLFormElement).reset();
+    });
+</script> -->
