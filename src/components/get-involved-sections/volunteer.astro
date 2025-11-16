@@ -2,7 +2,7 @@
 // VolunteerForm.astro
 ---
 
-<section class="py-16" style="background-color: #31576A;">
+<section class="py-16 bg-[var(--color-primary-dark)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <!-- Left Side - Form Content -->
@@ -30,7 +30,7 @@
                             id="fullName" 
                             name="fullName" 
                             placeholder="Input Value"
-                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-yellow)] focus:border-transparent transition-all duration-200"
                         />
                     </div>
                     
@@ -44,7 +44,7 @@
                             id="email" 
                             name="email" 
                             placeholder="Input Value"
-                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-yellow)] focus:border-transparent transition-all duration-200"
                         />
                     </div>
                     
@@ -56,7 +56,7 @@
                         <select 
                             id="volunteerRole" 
                             name="volunteerRole"
-                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer"
+                            class="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-yellow)] focus:border-transparent transition-all duration-200 appearance-none cursor-pointer"
                         >
                             <option value="" disabled selected>Select option</option>
                             <option value="event-coordinator">Event Coordinator</option>
@@ -73,7 +73,7 @@
                     <div class="pt-4">
                         <button 
                             type="submit"
-                            class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-transparent"
+                            class="bg-[var(--color-accent-yellow)] hover:bg-[var(--color-accent-gold)] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-yellow)] focus:ring-offset-2 focus:ring-offset-transparent"
                         >
                             Send Form
                         </button>
