@@ -1,21 +1,18 @@
 ---
 // HeroCarousel.astro
-import GardensImage from '../../assets/Gardens1.jpg';
-import AnchoredImage from '../../assets/Anchored2024.jpg';
-import QiyamNightsImage from '../../assets/QiyamNights2024.jpg';
 
-// Sample slides - replace with your actual images
+// Sample slides - using public assets for better live site reliability
 const slides = [
   {
-    image: GardensImage.src,
+    image: '/assets/Gardens1.jpg',
     alt: 'Slide 1'
   },
   {
-    image: AnchoredImage.src,
+    image: '/assets/Anchored2024.jpg',
     alt: 'Slide 2'
   },
   {
-    image: QiyamNightsImage.src,
+    image: '/assets/QiyamNights2024.jpg',
     alt: 'Slide 3'
   }
 ];
