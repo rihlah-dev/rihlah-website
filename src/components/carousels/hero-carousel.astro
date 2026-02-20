@@ -70,6 +70,10 @@ const slides = [
   const slidesContainer = document.getElementById('slides-container');
   const indicators = document.querySelectorAll('.indicator-btn');
   let autoScrollInterval;
+  
+  // Touch swipe variables
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   // Function to go to a specific slide
   function goToSlide(index) {
@@ -96,6 +100,12 @@ const slides = [
     goToSlide(next);
   }
 
+  // Function to go to previous slide
+  function prevSlide() {
+    const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(prev);
+  }
+
   // Auto-scroll functionality
   function startAutoScroll() {
     autoScrollInterval = setInterval(nextSlide, 16000);
@@ -104,6 +114,33 @@ const slides = [
   function stopAutoScroll() {
     if (autoScrollInterval) {
       clearInterval(autoScrollInterval);
+    }
+  }
+
+  // Touch swipe handlers
+  function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }
+
+  function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50; // Minimum distance to trigger slide change
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      stopAutoScroll();
+      if (diff > 0) {
+        // Swiped left, go to next slide
+        nextSlide();
+      } else {
+        // Swiped right, go to previous slide
+        prevSlide();
+      }
+      startAutoScroll(); // Restart auto-scroll after swipe
     }
   }
 
@@ -121,15 +158,19 @@ const slides = [
       });
     });
 
-    // Start auto-scroll
-    startAutoScroll();
-
-    // Pause auto-scroll on hover
+    // Add touch swipe listeners
     const carousel = document.getElementById('hero-carousel');
     if (carousel) {
+      carousel.addEventListener('touchstart', handleTouchStart, false);
+      carousel.addEventListener('touchend', handleTouchEnd, false);
+      
+      // Pause auto-scroll on hover
       carousel.addEventListener('mouseenter', stopAutoScroll);
       carousel.addEventListener('mouseleave', startAutoScroll);
     }
+
+    // Start auto-scroll
+    startAutoScroll();
   }
 
   // Initialize when DOM is ready
